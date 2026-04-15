@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARCOOM | Product Development & Business Consulting | Riyadh</title>
+    <meta name="description" content="From feasibility studies to SFDA registration. Complete product development, formulation, and market entry solutions in Saudi Arabia.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: grid;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 35C20 26.7157 26.7157 20 35 20C38.866 20 42.4677 21.3643 45.2929 23.6464L70.3536 48.7071C72.6357 51.5323 74 55.134 74 59C74 67.2843 67.2843 74 59 74C55.134 74 51.5323 72.6357 48.7071 70.3536L23.6464 45.2929C21.3643 42.4677 20 38.866 20 35Z" fill="#0055FF"/>
+                        <circle cx="30" cy="70" r="10" fill="#0055FF"/>
+                        <circle cx="70" cy="30" r="10" fill="#0055FF"/>
+                    </svg>
+                    <span class="text-2xl font-bold text-gray-900 tracking-tight">MARCOOM</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">About</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Services</a>
+                    <a href="#process" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Process</a>
+                    <a href="#industries" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Industries</a>
+                    <a href="#faq" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">FAQ</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="#contact" class="hidden md:block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 hover:scale-105 transition-all shadow-lg">
+                    Get Free Consultation
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="flex flex-col items-center py-8 gap-6">
+                <a href="#home" class="text-xl text-gray-700 hover:text-blue-600 transition-colors font-medium">Home</a>
+                <a href="#about" class="text-xl text-gray-700 hover:text-blue-600 transition-colors font-medium">About</a>
+                <a href="#services" class="text-xl text-gray-700 hover:text-blue-600 transition-colors font-medium">Services</a>
+                <a href="#process" class="text-xl text-gray-700 hover:text-blue-600 transition-colors font-medium">Process</a>
+                <a href="#industries" class="text-xl text-gray-700 hover:text-blue-600 transition-colors font-medium">Industries</a>
+                <a href="#faq" class="text-xl text-gray-700 hover:text-blue-600 transition-colors font-medium">FAQ</a>
+                <a href="#contact" class="text-xl text-gray-700 hover:text-blue-600 transition-colors font-medium">Contact</a>
+                <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-colors shadow-lg mt-4">
+                    Get Free Consultation
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Column -->
+                <div class="scroll-reveal">
+                    <p class="text-blue-600 text-sm font-semibold tracking-wider uppercase mb-4">
+                        BUSINESS CONSULTING & PRODUCT DEVELOPMENT
+                    </p>
+                    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                        From Idea to <span class="text-blue-600">Market Reality</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-xl leading-relaxed">
+                        We don't just advise—we build. From feasibility studies to product formulation, from market entry to SFDA registration. Complete end-to-end solutions for ambitious businesses in the GCC.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 hover:scale-105 transition-all shadow-lg">
+                            Book Free Consultation
+                        </a>
+                        <a href="#services" class="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-all">
+                            Explore Services
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="relative scroll-reveal">
+                    <div class="aspect-square bg-gradient-to-br from-blue-600 to-blue-400 rounded-3xl relative overflow-hidden shadow-2xl">
+                        <div class="absolute inset-0 opacity-20">
+                            <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full"></div>
+                            <div class="absolute bottom-20 right-10 w-40 h-40 bg-white transform rotate-45"></div>
+                            <div class="absolute top-1/2 left-1/2 w-24 h-24 bg-white rounded-lg transform -translate-x-1/2 -translate-y-1/2 rotate-12"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        Why Marcoom is Different
+                    </h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-12">
+                        We combine strategic consulting with hands-on product development and R&D capabilities. Whether you're entering the Saudi market, developing a new formulation, or optimizing operations, we deliver measurable results across multiple industries.
+                    </p>
+
+                    <div class="space-y-8">
+                        <div class="flex gap-4 scroll-reveal">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">End-to-End Execution</h3>
+                                <p class="text-gray-600">From concept to commercialization—we handle every step of your business journey.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 scroll-reveal">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Technical Expertise</h3>
+                                <p class="text-gray-600">Deep knowledge in formulation development, nanotech, bio-solutions, and industrial applications.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 scroll-reveal">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Market Intelligence</h3>
+                                <p class="text-gray-600">Deep understanding of Saudi and GCC markets with proven market entry strategies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal">
+                    <div class="aspect-[4/3] bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl overflow-hidden shadow-xl flex items-center justify-center">
+                        <div class="text-center p-8">
+                            <div class="w-32 h-32 bg-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Technical Excellence</h3>
+                            <p class="text-gray-600">R&D capabilities meet strategic execution</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-16 scroll-reveal">
+                Our Services
+            </h2>
+
+            <!-- Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-16 border-b-2 border-gray-200 scroll-reveal">
+                <button onclick="showTab('strategic')" class="service-tab px-6 py-3 font-semibold transition-all rounded-t-lg text-sm md:text-base bg-blue-600 text-white shadow-md">
+                    Strategic Consulting
+                </button>
+                <button onclick="showTab('business-dev')" class="service-tab px-6 py-3 font-semibold transition-all rounded-t-lg text-sm md:text-base bg-transparent text-gray-600 hover:bg-gray-100">
+                    Business Development
+                </button>
+                <button onclick="showTab('product-dev')" class="service-tab px-6 py-3 font-semibold transition-all rounded-t-lg text-sm md:text-base bg-transparent text-gray-600 hover:bg-gray-100">
+                    Product Development
+                </button>
+                <button onclick="showTab('rnd')" class="service-tab px-6 py-3 font-semibold transition-all rounded-t-lg text-sm md:text-base bg-transparent text-gray-600 hover:bg-gray-100">
+                    R&D & Innovation
+                </button>
+                <button onclick="showTab('operations')" class="service-tab px-6 py-3 font-semibold transition-all rounded-t-lg text-sm md:text-base bg-transparent text-gray-600 hover:bg-gray-100">
+                    Operations
+                </button>
+                <button onclick="showTab('digital')" class="service-tab px-6 py-3 font-semibold transition-all rounded-t-lg text-sm md:text-base bg-transparent text-gray-600 hover:bg-gray-100">
+                    Digital Transformation
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="strategic" class="tab-content active grid md:grid-cols-2 gap-8">
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Feasibility Studies</h3>
+                    <p class="text-gray-600">Comprehensive market and financial analysis to validate your business opportunity before investment.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Market Analysis</h3>
+                    <p class="text-gray-600">In-depth analysis of Saudi and GCC markets, consumer behavior, and competitive landscape.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Business Planning</h3>
+                    <p class="text-gray-600">Strategic business plans with clear roadmaps, milestones, and financial projections.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Competitive Intelligence</h3>
+                    <p class="text-gray-600">Detailed competitor analysis and market positioning strategies for competitive advantage.</p>
+                </div>
+            </div>
+
+            <div id="business-dev" class="tab-content grid md:grid-cols-2 gap-8">
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="Mصافحة"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Partnership Development</h3>
+                    <p class="text-gray-600">Building strategic local and international partnerships to accelerate market growth.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Foreign Company Representation</h3>
+                    <p class="text-gray-600">Representing international companies seeking to enter and establish presence in Saudi Arabia.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Market Entry Strategy</h3>
+                    <p class="text-gray-600">Complete market entry solutions including regulatory, distribution, and go-to-market strategies.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Distribution Channel Development</h3>
+                    <p class="text-gray-600">Establishing and optimizing distribution networks across KSA and GCC markets.</p>
+                </div>
+            </div>
+
+            <div id="product-dev" class="tab-content grid md:grid-cols-2 gap-8">
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Formulation Development</h3>
+                    <p class="text-gray-600">Custom formulation design for food, cosmetics, supplements, and industrial products.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Product Design (Concept to Production)</h3>
+                    <p class="text-gray-600">Complete product development cycle from initial concept through prototyping to full production.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Product Testing & Validation</h3>
+                    <p class="text-gray-600">Laboratory and field testing to ensure product quality, safety, and market readiness.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Raw Material Selection & Sourcing</h3>
+                    <p class="text-gray-600">Expert selection of suppliers and raw materials optimized for quality and cost-efficiency.</p>
+                </div>
+            </div>
+
+            <div id="rnd" class="tab-content grid md:grid-cols-2 gap-8">
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Innovation Solutions</h3>
+                    <p class="text-gray-600">Cutting-edge solutions in nanotechnology, bio-applications, and industrial innovations.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">OEM / ODM Collaboration</h3>
+                    <p class="text-gray-600">Strategic partnerships with manufacturers for custom production and private labeling.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Concept to Manufacturing</h3>
+                    <p class="text-gray-600">Transforming innovative ideas into production-ready, commercially viable products.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">SFDA Registration Support</h3>
+                    <p class="text-gray-600">Complete support for Saudi Food and Drug Authority registration and compliance requirements.</p>
+                </div>
+            </div>
+
+            <div id="operations" class="tab-content grid md:grid-cols-2 gap-8">
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Process Optimization</h3>
+                    <p class="text-gray-600">Streamlining operations to eliminate waste, reduce costs, and increase efficiency.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Cost Optimization</h3>
+                    <p class="text-gray-600">Systematic cost reduction strategies without compromising quality or performance.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Organizational Restructuring</h3>
+                    <p class="text-gray-600">Strategic reorganization to improve efficiency, accountability, and scalability.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Quality Systems (ISO / GMP)</h3>
+                    <p class="text-gray-600">Implementation of international quality standards including ISO and GMP certifications.</p>
+                </div>
+            </div>
+
+            <div id="digital" class="tab-content grid md:grid-cols-2 gap-8">
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">SaaS Solutions Development</h3>
+                    <p class="text-gray-600">Custom software-as-a-service platforms tailored to your business needs.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Business Process Automation</h3>
+                    <p class="text-gray-600">Automating repetitive tasks and workflows to increase productivity and reduce errors.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">AI Integration</h3>
+                    <p class="text-gray-600">Implementing artificial intelligence solutions to enhance decision-making and operations.</p>
+                </div>
+                <div class="p-8 border-2 border-gray-100 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Data Analytics & Decision Support</h3>
+                    <p class="text-gray-600">Business intelligence systems that transform data into actionable insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-blue-800 text-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+                    Whether you need a feasibility study, product formulation, or complete market entry strategy—we deliver results, not reports.
+                </p>
+            </div>
+
+            <form id="contact-form" class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 scroll-reveal">
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <input type="text" placeholder="Your Name" required class="px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-gray-900">
+                    <input type="text" placeholder="Company Name" required class="px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-gray-900">
+                    <input type="email" placeholder="Email Address" required class="px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-gray-900">
+                    <input type="tel" placeholder="Phone Number" required class="px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-gray-900">
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-lg font-semibold text-lg transition-all bg-blue-600 text-white hover:bg-blue-700 hover:scale-102">
+                    Schedule My Free Call
+                </button>
+
+                <div class="flex flex-wrap items-center justify-center gap-8 mt-8 text-sm text-gray-600">
+                    <div class="flex items-center gap-2">
+                        <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
+                            <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                        </div>
+                        <span>No obligation</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
+                            <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                        </div>
+                        <span>Response within 24 hours</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
+                            <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                        </div>
+                        <span>100% Confidential</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 35C20 26.7157 26.7157 20 35 20C38.866 20 42.4677 21.3643 45.2929 23.6464L70.3536 48.7071C72.6357 51.5323 74 55.134 74 59C74 67.2843 67.2843 74 59 74C55.134 74 51.5323 72.6357 48.7071 70.3536L23.6464 45.2929C21.3643 42.4677 20 38.866 20 35Z" fill="white"/>
+                            <circle cx="30" cy="70" r="10" fill="white"/>
+                            <circle cx="70" cy="30" r="10" fill="white"/>
+                        </svg>
+                        <span class="text-2xl font-bold">MARCOOM</span>
+                    </div>
+                    <p class="text-gray-400">From idea to market - Strategic consulting that delivers.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Services</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#services" class="hover:text-white transition-colors">Strategic Consulting</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Business Development</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Product Development</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">R&D & Innovation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Company</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Our Services</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Contact</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li>Al Yasmin District, King Abdulaziz Street, Riyadh, Saudi Arabia</li>
+                        <li>markoom.sa@gmail.com</li>
+                        <li>+966 56 144 2200</li>
+                    </ul>
+                    <a href="https://wa.me/966561442200" class="mt-6 inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+                <p>© 2024 MARCOOM Consulting. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Scroll reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Tab switching
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.service-tab').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
+                btn.classList.add('bg-transparent', 'text-gray-600');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.remove('bg-transparent', 'text-gray-600');
+            event.target.classList.add('bg-blue-600', 'text-white', 'shadow-md');
+        }
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! We will contact you within 24 hours.');
+            this.reset();
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
